@@ -8,30 +8,29 @@ class Carro{
 
     //métodos
 
+    public function __construct(string $cor, int $ano, string $modelo)
+    {
+        $this->cor = $cor;
+        $this->ano = $ano;
+        $this->modelo = $modelo;
+
+        echo 'Construindo carro '.$this->modelo.'... <br>';
+    }
+
     public function acelerar(){
         echo 'Acelerando...';
     }
 
-    public function freiar() {
+    public function freiar()
+    {
         echo 'freiando';
     }
 }
 
-$carro1 = new Carro;
-$carro1->cor = 'Azul';
-$carro1->ano = '2025';
-$carro1->modelo = 'DVD';
+$carro1 = new Carro('Azul', 2025, 'DVD');
 
-$carro2 = new Carro;
-$carro2->cor = 'Preto';
-$carro2->ano = '2024';
-$carro2->modelo = 'YSM';
 
-echo 'Carro 1: <br>';
-$carro1->acelerar();
-$carro1->freiar();
+$carro2 = new Carro('Preto', 2023, 'YSM');
 
-echo 'Carrp 2: <br>';
-$carro2->acelerar();
-$carro2->freiar();
+
 
