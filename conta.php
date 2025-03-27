@@ -3,7 +3,7 @@
 class Conta{
 
     //Atributos
-    public int $saldo;
+    private int $saldo;
 
     //Métodos
     public function __construct(int $saldo)
@@ -22,9 +22,13 @@ class Conta{
         echo 'Você depositou: '.$valor. '<br>';
         $this->saldo += $valor;
     }
+    public function verSaldo() {
+        return $this->saldo;
+    }
 }
 
 $conta1 = new Conta(500);
-echo 'Saldo Inicial: '.$conta1->saldo. '<br>';
+echo 'Saldo Inicial: '.$conta1->verSaldo(). '<br>';
+
 $conta1->depositar(100);
-echo $conta1->saldo;
+echo $conta1->verSaldo(). '<br>';
