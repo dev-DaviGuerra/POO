@@ -1,6 +1,9 @@
 <?php
 
 class Conta{
+    //Não é possível depositar mais de 100 reais
+    //Não é possível sacar mais que o valor do saldo
+
 
     //Atributos
     private int $saldo;
@@ -13,14 +16,26 @@ class Conta{
 
     public function sacar(int $valor)
     {
+        if($valor > $this->saldo)
+        {
+            echo 'Você não tem saldo suficiente <br>';
+            return false;
+        }else{
         echo 'Você sacou: '.$valor.'<br>';
         $this->saldo -= $valor;
+        }
     }
 
     public function depositar(int $valor)
     {
-        echo 'Você depositou: '.$valor. '<br>';
-        $this->saldo += $valor;
+        if($valor > 100)
+        {
+            echo 'Você não pode depositar mais de 100 reais <br>';
+            return false;
+        } else{
+            echo 'Você depositou: '.$valor. '<br>';
+            $this->saldo += $valor;
+        }
     }
     public function verSaldo() {
         return $this->saldo;
