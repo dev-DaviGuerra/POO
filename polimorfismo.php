@@ -15,6 +15,22 @@ class Cachorro extends Animal
     }
 }
 
+
+class FilaBrasileiro extends Cachorro
+{
+    public $nome = 'Fila Brasileiro ';
+    public $meses = 3;
+    public function emitirSom()
+    {
+        if($this->meses < 6)
+        {
+        return parent::emitirSom();
+        }else{
+        return 'Ruf Ruf';
+        }
+    }
+}
+
 class Gato extends Animal
 {
     public $nome = 'Gato';
@@ -39,6 +55,7 @@ function fazerOAnimalEmitirSom($animal)
     echo 'O animal: '.$animal->nome.' emite: '.$animal->emitirSom();
 }
 
+/*
 $cachorro = new Cachorro();
 $gato = new Gato();
 $peixe = new Peixe();
@@ -50,3 +67,7 @@ foreach ($animais as $animal)
 {
     fazerOAnimalEmitirSom($animal);
 }
+*/
+
+$fila = new FilaBrasileiro();
+fazerOAnimalEmitirSom($fila);
