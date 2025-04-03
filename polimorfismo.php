@@ -2,8 +2,14 @@
 
 abstract class Animal
 {
-
+    protected $idade = 30;
     abstract public function emitirSom();
+
+    public function mover()
+    {
+        echo 'Movendo...<br>';
+    }
+
 }
 
 class Cachorro extends Animal
@@ -20,6 +26,14 @@ class FilaBrasileiro extends Cachorro
 {
     public $nome = 'Fila Brasileiro ';
     public $meses = 3;
+
+
+    public function getIdade()
+    {
+        return $this->idade;
+    }
+
+
     public function emitirSom()
     {
         if($this->meses < 6)
@@ -70,4 +84,6 @@ foreach ($animais as $animal)
 */
 
 $fila = new FilaBrasileiro();
+$fila->mover();
+echo $fila->getIdade();
 fazerOAnimalEmitirSom($fila);
