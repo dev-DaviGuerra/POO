@@ -1,5 +1,23 @@
 <?php
 
+function autoloader($className) 
+{
+    $diretorios = ['classes/', 'traits/'];
+    foreach($diretorios as $diretorios)
+    {
+        $diretorios = strtolower($diretorios);
+        $className = strtolower($className);
+        
+        if(file_exists($diretorios . $className . '.class.php'))
+        {
+            include_once($diretorios . $className . '.class.php');
+            break;
+        }
+    }
+}
+
+spl_autoload_register('autoloader');
+
 trait Logger
 {
     public function log($message)
